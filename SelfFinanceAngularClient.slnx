@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SelfFinanceAngularClient/SelfFinanceAngularClient.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
