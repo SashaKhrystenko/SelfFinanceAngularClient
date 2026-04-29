@@ -6,17 +6,11 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "UniversityClient": {
+    "self-finance-angular-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
+          "style": "scss"
         }
       },
       "root": "",
@@ -28,6 +22,7 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -35,8 +30,16 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ]
+              "src/styles.scss"
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "security": {
+              "allowedHosts": []
+            },
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -66,22 +69,16 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "UniversityClient:build:production"
+              "buildTarget": "self-finance-angular-client:build:production"
             },
             "development": {
-              "buildTarget": "UniversityClient:build:development"
+              "buildTarget": "self-finance-angular-client:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "port": 50963
-          }
+          "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "karmaConfig": "karma.conf.js"
-          }
+          "builder": "@angular/build:unit-test"
         }
       }
     }
