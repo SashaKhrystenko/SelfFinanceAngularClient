@@ -1,5 +1,5 @@
 @if (dateCount() > 0) {
-<div class="overflow-auto my-5">
+<div class="overflow-auto">
   @for (oneDayTransactions of transactions() | keyvalue; track oneDayTransactions.key) {
   <div class="mb-4 overflow-auto">
     <h4>{{ oneDayTransactions.key }}</h4>
