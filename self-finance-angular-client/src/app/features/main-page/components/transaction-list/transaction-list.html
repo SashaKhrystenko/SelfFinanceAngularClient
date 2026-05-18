@@ -1,27 +1,28 @@
-@if (transactions.length > 0) {
-  <div class="overflow-auto my-5">
-    @for (oneDayTransactions of transactions(); track oneDayTransactions.date) {
-      <div class="mb-4">
-        <h4>{{ oneDayTransactions.date }}</h4>
-      </div>
-      <table class="table">
-        <colgroup>
-          <col class="w-25" />
-          <col class="w-50" />
-          <col class="w-25" />
-        </colgroup>
-        <tbody>
-          @for (transaction of oneDayTransactions.transactions; track transaction.date) {
-            <tr>
-              <td>{{ transaction.date }}</td>
-              <td>{{ transaction.category }}</td>
-              <td>{{ transaction.amount }}</td>
-            </tr>
-          }
-        </tbody>
-      </table>
-    }
+@if (dateCount() > 0) {
+<div class="overflow-auto my-5">
+  @for (oneDayTransactions of transactions() | keyvalue; track oneDayTransactions.key) {
+  <div class="mb-4 overflow-auto">
+    <h4>{{ oneDayTransactions.key }}</h4>
   </div>
-} @else {
-  <p class="text-center my-5 fs-3">No transaction found</p>
+  <table class="table">
+    <colgroup>
+      <col class="w-25" />
+      <col class="w-50" />
+      <col class="w-25" />
+    </colgroup>
+    <tbody>
+      @for (transaction of oneDayTransactions.value; track transaction.date) {
+      <tr>
+        <td>{{ transaction.date }}</td>
+        <td>{{ transaction.category }}</td>
+        <td>{{ transaction.amount }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+</div>
+}
+@else {
+<p class="text-center my-5 fs-3">No transaction found</p>
 }

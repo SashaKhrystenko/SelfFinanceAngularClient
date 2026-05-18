@@ -9,4 +9,4 @@ import { NavMenuComponent } from '../nav-menu/nav-menu.component';
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
 })
-export class MainLayoutComponent {}
+export class MainLayoutComponent { }
